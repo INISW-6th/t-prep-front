@@ -44,7 +44,6 @@ function StartPage({ onNext }) {
     }
   }, [grade]);
 
-  // ★★★ 유일하게 변경된 부분 ★★★
   const handleNext = () => {
     // 유효성 검사를 grade만 하도록 수정
     if (!grade) {
@@ -54,7 +53,6 @@ function StartPage({ onNext }) {
     // onNext에 grade 값만 직접 전달하도록 수정
     onNext(grade);
   };
-  // ★★★ ===================== ★★★
 
   return (
     <div>
@@ -71,8 +69,6 @@ function StartPage({ onNext }) {
 
       {loading && <p>데이터를 불러오는 중...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
-
-      {/* --- 원본 코드의 UI를 그대로 복원 --- */}
       {grade && !loading && !error && (
         <div>
           <p>이전 진도: {prevProgress}</p>
@@ -109,8 +105,6 @@ function StartPage({ onNext }) {
           </div>
         </div>
       )}
-      {/* --- */}
-
       <button onClick={handleNext} disabled={loading}>
         다음
       </button>
